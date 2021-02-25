@@ -41,6 +41,10 @@ public interface BoardMapper {
 	@Delete("DELETE FROM mvc_board WHERE bId = #{bId}")
 	public void delete(BoardVO boardVO);
 
+	// AJAX용 작성글 삭제하기
+	@Delete("DELETE FROM mvc_board WHERE bId = #{bId}")
+	public int ajaxDelete(int bId);
+
 	// 작성글 수정하기
 	@Update("UPDATE mvc_board SET bName = #{bName}, bTitle = #{bTitle}, bContent = #{bContent} where bId = #{bId}")
 	public void modify(BoardVO boardVO);

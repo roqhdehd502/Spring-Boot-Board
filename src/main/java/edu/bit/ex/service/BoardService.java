@@ -24,6 +24,9 @@ public interface BoardService {
 	// 작성글 삭제
 	public void deleteBoard(BoardVO boardVO);
 
+	// AJAX 작성글 삭제
+	public int remove(int bId);
+
 	// 작성글 수정
 	public void modifyBoard(BoardVO boardVO);
 
