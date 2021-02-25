@@ -15,6 +15,10 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>	
 </head>
 <body>
+	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+		<h1 align="center">MY BOARD</h1>
+	</nav>
+
 	<form action="write" method="post">
 		<table class="table">
       
@@ -32,8 +36,8 @@
          </tr>
          <tr >
             <td colspan="2"> 
-            	<input type="submit" value="입력"> &nbsp;&nbsp; 
-            	<a href="list2">목록보기</a>
+            	<input class="btn btn-primary" type="submit" value="입력"> &nbsp;&nbsp; 	
+            	<button type="button" class="btn btn-primary" onclick="location.href='list2'">목록</button>
             </td>
          </tr>
       </table>
