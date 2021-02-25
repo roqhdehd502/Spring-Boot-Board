@@ -60,6 +60,13 @@ public class BoardServiceImpl implements BoardService {
 		log.info("deleteBoard()");
 	}
 
+	// AJax를 이용한 작성글 삭제
+	@Override
+	public int remove(int bId) {
+		log.info("remove..........");
+		return mapper.ajaxDelete(bId);
+	}
+
 	// 작성글 수정
 	@Override
 	public void modifyBoard(BoardVO boardVO) {
@@ -82,4 +89,5 @@ public class BoardServiceImpl implements BoardService {
 		mapper.replyShape(boardVO);
 		log.info("replyBoard()");
 	}
+
 }
