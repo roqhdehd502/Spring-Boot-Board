@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Index Page</title>
+</head>
+<body>
+	<h1>Hello World :)</h1><br>
+	
+	<h2>부모자식 관계가 형성되지 않았으므로 *{} 선택자가 구현되지 않는다</h2>
+	<p th:object="${board}"></p>
+	<p th:text="${board.bName}"></p>
+	<p th:text="${board.bTitle}"></p>
+	<p th:text="*{bContent}"></p>
+	
+	<h1>===============</h1>
+	
+	<h2>html 자식관계가 형성됨을 인지하고 타임리프를 구현하자.</h2>
+	<div th:object="${board}">
+		<p th:text="${board.bName}"></p>
+		<p th:text="${board.bTitle}"></p>
+		<p th:text="*{bContent}"></p>
+	</div>
+	
+	<h1>===============</h1>
+	
+	<h2>message.properties에 구현된 메시지식(#{}) 호출</h2>
+	<p th:text="#{content.id}"></p>
+	<p th:text="#{content.name}"></p>
+	
+	<h1>===============</h1>
+	
+	<h2>시간 포맷 설정</h2>
+	<p th:text="${#temporals.format(localDateTime, 'yyyy-MM-dd HH:mm')}"></p>
+</body>
+</html>
