@@ -117,7 +117,7 @@ public class RestBoardController {
 
 	// 글 작성 페이지
 	@GetMapping("/board/write")
-	public ModelAndView rest_write_view(BoardVO boardVO, ModelAndView mav) {
+	public ModelAndView rest_write_view(ModelAndView mav) {
 		log.info("rest_write_view");
 		mav.setViewName("rest/write_view");
 		return mav;
