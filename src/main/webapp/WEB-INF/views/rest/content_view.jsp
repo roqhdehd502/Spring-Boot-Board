@@ -5,12 +5,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>MY REST BOARD: CONTENT</title>
-	
-	<!-- 합쳐지고 최소화된 최신 CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<!-- 부가적인 테마 -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -53,12 +49,42 @@
              }
          })            
        }); // end submit()       
-   }); // end ready()
-</script>
+   	}); // end ready()
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function (){
+		$('#delete').click(function(event){
+			event.preventDefault();
+			console.log("ajax 호출전");		
+			//var trObj = $(this).parent().parent(); 
+ 
+			$.ajax({
+				type : 'DELETE',
+				url : $(this).attr("href"),
+				cache : false,
+				success: function(result){
+					console.log(result);
+					if(result=="SUCCESS"){
+						if(result == "SUCCESS"){     
+                  					$(location).attr('href', '${pageContext.request.contextPath}/restful/board/')                            
+               				}  
+					}
+				},
+				error:function(e){
+					console.log(e);
+				}
+			})
+		});	
+	});	
+	</script>
 </head>
 <body>
+	<div class="jumbotron jumbotron-fluid">
+  		<h1 align="center">MY BOARD</h1>
+	</div>
+
 	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-		<h1 align="center">MY BOARD</h1>
+		<h1 align="center">CONTENT</h1>
 	</nav>
 
 	<form id="updateForm" action="${pageContext.request.contextPath}/restful/board/${content_view.bId}" method="post">
@@ -87,7 +113,7 @@
 			<tr>
 				<td colspan="2">
 					<input type="submit" class="btn btn-primary" value="수정">&nbsp;&nbsp;
-					<button type="button" class="btn btn-primary" onclick="location.href='#'">삭제</button>&nbsp;&nbsp;
+					<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/restful/board/${content_view.bId}'" id="delete">삭제</button>&nbsp;&nbsp;
 					<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/restful/board/reply/${content_view.bId}'">답변</button>&nbsp;&nbsp;
 					<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/restful/board'">목록</button>
 				</td>
@@ -95,9 +121,9 @@
 		</table>
 	</form>
 
-	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-   <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
-   <script src="js/bootstrap.min.js"></script>
+	<div align="center" class="jumbotron jumbotron-fluid">
+  		<p>Copyrights&copy;All rights reserved by bootstrap.
+	</div>	
+
 </body>
 </html>

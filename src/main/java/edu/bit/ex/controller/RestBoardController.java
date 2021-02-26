@@ -27,12 +27,6 @@ public class RestBoardController {
 	/* @Autowired */
 	private BoardService boardService;
 
-	// 게시글 리스트
-	/*
-	 * @GetMapping("/board") public ModelAndView list(ModelAndView mav) { mav.setViewName("rest/rest_list"); mav.addObject("list",
-	 * boardService.getList()); return mav; }
-	 */
-
 	// 페이징을 적용한 게시글 리스트
 	@Transactional
 	@GetMapping("/board")
@@ -145,5 +139,4 @@ public class RestBoardController {
 
 		return entity;
 	}
-
 }
